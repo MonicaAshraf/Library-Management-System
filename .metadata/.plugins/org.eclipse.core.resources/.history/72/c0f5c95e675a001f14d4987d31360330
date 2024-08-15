@@ -1,0 +1,12 @@
+package com.library_management.patron.controller;
+
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/patrons") // http://localhost:8080/LibraryManagement/api/patrons
+@Validated
+public class PatronController {
+
+}

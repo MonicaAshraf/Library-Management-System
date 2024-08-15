@@ -1,0 +1,5 @@
+package com.library_management.borrowingRecord.repository;
+
+public interface BorrowingRecordRepository {
+
+}

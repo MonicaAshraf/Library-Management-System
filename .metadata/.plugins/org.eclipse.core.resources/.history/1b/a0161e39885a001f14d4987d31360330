@@ -1,0 +1,64 @@
+package com.library_management.borrowingRecord.service.serviceImpl;
+
+import com.library_management.borrowingRecord.service.BorrowService;
+import com.library_management.patron.models.response.PatronResModel;
+
+public class BorrowServiceImpl implements BorrowService{
+	
+	@Autowired
+    private BookRepository bookRepository;
+    
+    @Autowired
+    private PatronRepository patronRepository;
+    
+    @Autowired
+    private BorrowingRecordRepository borrowingRecordRepository;
+
+    @Transactional
+    @Override
+    public PatronResModel borrowBook(int bookId, int patronId) {
+        PatronResModel response = new PatronResModel();
+        
+        Optional<Book> bookOpt = bookRepository.findById(bookId);
+        Optional<Patron> patronOpt = patronRepository.findById(patronId);
+        
+        if (!bookOpt.isPresent()) {
+            response.setSuccess(false);
+            response.setMessage("Book not found");
+            return response;
+        }
+        
+        if (!patronOpt.isPresent()) {
+            response.setSuccess(false);
+            response.setMessage("Patron not found");
+            return response;
+        }
+        
+        Book book = bookOpt.get();
+        Patron patron = patronOpt.get();
+        
+        // Check if the book is already borrowed
+        if (book.isBorrowed()) {
+            response.setSuccess(false);
+            response.setMessage("Book is already borrowed");
+            return response;
+        }
+        
+        // Create and save borrowing record
+        BorrowingRecord borrowingRecord = new BorrowingRecord();
+        borrowingRecord.setBook(book);
+        borrowingRecord.setPatron(patron);
+        borrowingRecord.setBorrowDate(LocalDate.now());
+        
+        borrowingRecordRepository.save(borrowingRecord);
+        
+        // Update book status
+        book.setBorrowed(true);
+        bookRepository.save(book);
+        
+        response.setSuccess(true);
+        response.setMessage("Book borrowed successfully");
+        return response;
+    }
+
+}

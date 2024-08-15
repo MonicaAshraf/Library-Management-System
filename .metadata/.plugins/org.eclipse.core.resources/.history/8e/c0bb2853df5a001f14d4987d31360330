@@ -1,0 +1,22 @@
+package com.library_management.utils.exception;
+
+import lombok.*;
+
+@Setter
+@Getter
+public class BookNotFoundException extends RuntimeException{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7246046191874459976L;
+    
+	private Boolean success;
+	private String message;
+	
+	public BookNotFoundException(Boolean success, String message) {
+		super();
+		this.success = success;
+		this.message = message;
+	}
+}

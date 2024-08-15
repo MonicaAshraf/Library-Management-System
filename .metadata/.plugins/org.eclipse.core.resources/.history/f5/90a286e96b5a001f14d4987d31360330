@@ -1,0 +1,9 @@
+package com.library_management.applicationData.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.library_management.applicationData.entities.BaseEntity;
+
+public interface BaseEntityRepository  extends JpaRepository<BaseEntity, Integer>{
+
+}

@@ -1,0 +1,5 @@
+package com.library_management.applicationData.models.response;
+
+public class ErrorResponse {
+
+}

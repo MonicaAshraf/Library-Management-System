@@ -1,0 +1,14 @@
+package com.library_management.applicationData.entities;
+
+import java.io.Serializable;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Setter
+@Getter
+@Table(name = "POSITION")
+public class Position implements Serializable{
+
+}

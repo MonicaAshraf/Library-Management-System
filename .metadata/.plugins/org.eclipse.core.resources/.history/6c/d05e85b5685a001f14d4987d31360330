@@ -1,0 +1,18 @@
+package com.library_management.patron.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.library_management.book.service.BookService;
+import com.library_management.patron.service.PatronService;
+
+@RestController
+@RequestMapping("/patrons") // http://localhost:8080/LibraryManagement/api/patrons
+@Validated
+public class PatronController {
+
+	@Autowired
+	PatronService patronService;
+}

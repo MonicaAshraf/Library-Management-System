@@ -1,0 +1,12 @@
+package com.library_management.user.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Setter
+@Getter
+@Table(name = "USER")
+public class User {
+
+}

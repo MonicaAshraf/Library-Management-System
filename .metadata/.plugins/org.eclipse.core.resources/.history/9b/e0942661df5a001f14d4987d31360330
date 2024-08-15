@@ -1,0 +1,15 @@
+package com.library_management.utils.exception;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+@ControllerAdvice
+public class AppExceptionsHandler {
+	
+	
+	
+
+}

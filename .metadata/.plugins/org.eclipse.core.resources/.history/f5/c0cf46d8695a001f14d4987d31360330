@@ -1,0 +1,6 @@
+package com.library_management.patron.repository;
+@Repository
+public interface PatronRepository extends JpaRepository<Patron, Integer>{
+{
+
+}

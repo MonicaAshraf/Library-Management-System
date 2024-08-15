@@ -1,0 +1,7 @@
+package com.library_management.borrowingRecord.service.serviceImpl;
+
+import com.library_management.borrowingRecord.service.BorrowService;
+
+public class BorrowServiceImpl implements BorrowService{
+
+}

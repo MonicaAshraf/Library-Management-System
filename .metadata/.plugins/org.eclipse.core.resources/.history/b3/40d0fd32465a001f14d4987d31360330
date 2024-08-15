@@ -1,0 +1,5 @@
+package com.library_management.borrowingRecord.entity;
+
+public class BorrowingRecord {
+
+}

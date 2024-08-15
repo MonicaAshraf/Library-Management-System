@@ -1,0 +1,13 @@
+package com.library_management.patron.models.response;
+
+import lombok.*;
+
+@Setter
+@Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class PatronResModel {
+
+	private Boolean success;
+
+	private String message;
+}

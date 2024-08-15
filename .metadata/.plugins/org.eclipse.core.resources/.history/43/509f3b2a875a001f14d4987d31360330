@@ -1,0 +1,14 @@
+package com.library_management.borrowingRecord.service.serviceImpl;
+
+import com.library_management.borrowingRecord.service.BorrowService;
+import com.library_management.patron.models.response.PatronResModel;
+
+public class BorrowServiceImpl implements BorrowService{
+
+	@Override
+	public PatronResModel borrowBook(int bookId, int patronId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.library_management.utils.exception;
+
+import lombok.*;
+
+@Setter
+@Getter
+public class PatronNotFoundException extends RuntimeException{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6948663132060278498L;
+
+	//private Boolean success;
+	private String message;
+	
+	public PatronNotFoundException(Boolean success, String message) {
+		super();
+		//this.success = success;
+		this.message = message;
+	}
+
+}

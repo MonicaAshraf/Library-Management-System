@@ -1,0 +1,5 @@
+package com.library_management.patron.models.response;
+
+public class PatronResModel {
+
+}

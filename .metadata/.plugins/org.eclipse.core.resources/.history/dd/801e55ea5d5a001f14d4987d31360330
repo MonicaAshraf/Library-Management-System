@@ -1,0 +1,14 @@
+package com.library_management.book.service;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.library_management.book.models.request.BookRequestModel;
+import com.library_management.book.models.response.BookResModel;
+
+public interface BookService {
+	public BookResModel createBook(
+			BookRequestModel BookRequestModel)
+			throws JsonProcessingException;
+	
+	public BookResModel retrievebooks()
+			throws JsonProcessingException;
+}

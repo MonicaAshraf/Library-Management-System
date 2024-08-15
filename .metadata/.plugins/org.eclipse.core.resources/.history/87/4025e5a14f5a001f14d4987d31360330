@@ -1,0 +1,19 @@
+package com.library_management.book.models.response;
+
+import org.antlr.v4.runtime.misc.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import lombok.*;
+
+@Setter
+@Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class BookResModel {
+
+	private Boolean success;
+
+	private String message;
+
+	
+}

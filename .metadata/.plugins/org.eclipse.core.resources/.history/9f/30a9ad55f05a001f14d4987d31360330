@@ -1,0 +1,81 @@
+package com.library_management.book;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.library_management.book.models.request.BookRequestModel;
+import com.library_management.book.service.BookService;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class BookControllerTest {
+	@Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Autowired
+    private BookService bookService;
+
+    private BookRequestModel validBookRequest;
+
+    @BeforeEach
+    public void setup() {
+        validBookRequest = new BookRequestModel();
+        validBookRequest.setTitle("The Great Book");
+        validBookRequest.setAuthor("Author Name");
+        validBookRequest.setPublicationYear(2024);
+        validBookRequest.setIsbn("1234567890123");
+        validBookRequest.setNumberOfPages(300);
+        validBookRequest.setStatusDescription("Available");
+        validBookRequest.setCategory("Fiction");
+        validBookRequest.setReaderAge(15);
+        validBookRequest.setLanguage("English");
+    }
+
+    @Test
+    public void testCreateBook() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.post("/books")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(validBookRequest)))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.title").value("The Great Book"));
+    }
+
+    @Test
+    public void testGetBookById() throws Exception {
+        // Assume that book with id 1 exists
+        mockMvc.perform(MockMvcRequestBuilders.get("/books/1"))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.title").value("The Great Book"));
+    }
+
+    @Test
+    public void testUpdateBook() throws Exception {
+        // Assume that book with id 1 exists
+        validBookRequest.setTitle("Updated Book Title");
+        mockMvc.perform(MockMvcRequestBuilders.put("/books/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(validBookRequest)))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.title").value("Updated Book Title"));
+    }
+
+    @Test
+    public void testDeleteBook() throws Exception {
+        // Assume that book with id 1 exists
+        mockMvc.perform(MockMvcRequestBuilders.delete("/books/1"))
+                .andExpect(status().isOk());
+    }
+}

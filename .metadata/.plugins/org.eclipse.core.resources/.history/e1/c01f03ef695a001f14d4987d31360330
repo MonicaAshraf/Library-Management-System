@@ -1,0 +1,24 @@
+package com.library_management.patron.service.serviceImp;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.library_management.patron.models.request.PatronRequestModel;
+import com.library_management.patron.models.response.PatronResModel;
+import com.library_management.patron.service.PatronService;
+import com.library_management.user.repository.UserRepository;
+
+import jakarta.validation.Valid;
+
+public class PatronServiceImp implements PatronService{
+	@Autowired
+	UserRepository userRepository;
+	
+	
+	@Override
+	public PatronResModel createpatron(@Valid PatronRequestModel patronRequestModel) throws JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.library_management.book.models.request;
+
+import lombok.*;
+
+@Setter
+@Getter
+public class BookRequestModel {
+
+}

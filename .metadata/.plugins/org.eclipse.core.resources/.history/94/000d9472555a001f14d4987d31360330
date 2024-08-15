@@ -1,0 +1,15 @@
+package com.library_management.borrowingRecord.models.response;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import lombok.*;
+
+@Setter
+@Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class BorrowingRecordResModel {
+	@NotNull
+	private Boolean success;
+
+	private String message;
+}

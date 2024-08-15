@@ -1,0 +1,5 @@
+package com.library_management.utils.exception;
+
+public class AppExceptionsHandler {
+
+}

@@ -1,0 +1,76 @@
+package com.library_management.patron.service.serviceImp;
+
+import java.time.LocalDateTime;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.library_management.applicationData.entities.ApplicationPropertiesConstants;
+import com.library_management.applicationData.entities.BaseEntity;
+import com.library_management.applicationData.entities.Position;
+import com.library_management.applicationData.repository.BaseEntityRepository;
+import com.library_management.applicationData.repository.PositionRepository;
+import com.library_management.book.entity.Book;
+import com.library_management.book.models.response.BookResModel;
+import com.library_management.patron.entity.Patron;
+import com.library_management.patron.models.request.PatronRequestModel;
+import com.library_management.patron.models.response.PatronResModel;
+import com.library_management.patron.repository.PatronRepository;
+import com.library_management.patron.service.PatronService;
+import com.library_management.user.entity.User;
+import com.library_management.user.repository.UserRepository;
+
+import jakarta.validation.Valid;
+
+public class PatronServiceImp implements PatronService{
+	@Autowired
+	UserRepository userRepository;
+	
+	@Autowired
+	PatronRepository patronRepository;
+	
+	@Autowired
+	PositionRepository positionRepository;
+	
+	@Autowired
+	BaseEntityRepository baseEntityRepository;
+	
+	@Override
+	public PatronResModel createpatron(@Valid PatronRequestModel patronRequestModel) throws JsonProcessingException {
+		PatronResModel result =new PatronResModel();
+		Patron patron = new Patron();
+		User user = new User();
+		BaseEntity baseEntity = new BaseEntity();
+		
+		user.setFirstName(patronRequestModel.getFirstName());
+		user.setSecondName(patronRequestModel.getSecondName());
+		user.setThirdName(patronRequestModel.getThirdName());
+		user.setEmail(patronRequestModel.getEmail());
+		user.setUserName(patronRequestModel.getUserName());
+		user.setPassword(patronRequestModel.getPassword());
+		user.setGender(patronRequestModel.getGender());
+		user.setCity(patronRequestModel.getCity());
+		user.setCountry(patronRequestModel.getCountry());
+		user.setStreet(patronRequestModel.getStreet());
+		user.setNationalityId(patronRequestModel.getNationalityId());
+		user.setPhone(patronRequestModel.getPhone());
+		Position position = positionRepository.findById(patronRequestModel.getPositionId()).get();
+		user.setPosition(position);
+		
+		baseEntity.setCreaterId(ApplicationPropertiesConstants.Library_Management_user);
+		baseEntity.setCreationDate(LocalDateTime.now());
+		baseEntityRepository.save(baseEntity);
+		user.setBaseEntity(baseEntity);
+		userRepository.save(user);
+		patron.setUser(user);
+		patron.setBaseEntity(baseEntity);
+		patronRepository.save(patron);
+	
+		
+		result.setSuccess(true);
+		result.setMessage("Book added succesfully");
+		return result;
+	}
+
+}

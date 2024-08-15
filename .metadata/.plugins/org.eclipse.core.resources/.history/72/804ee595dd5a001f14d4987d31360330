@@ -1,0 +1,6 @@
+package com.library_management.utils.exception;
+@Setter
+@Getter
+public class BusinessLogicViolationException extends RuntimeException{
+
+}

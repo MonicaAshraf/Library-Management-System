@@ -1,0 +1,9 @@
+package com.library_management.patron.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+@Repository
+public interface PatronRepository extends JpaRepository<Patron, Integer>{
+
+
+}

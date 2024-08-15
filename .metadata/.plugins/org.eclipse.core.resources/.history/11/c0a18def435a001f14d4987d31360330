@@ -1,0 +1,27 @@
+package com.library_management.applicationData.entities;
+
+import java.io.Serializable;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Setter
+@Getter
+@Table(name = "POSITION")
+public class Position implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2056032339356005323L;
+
+	@Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @Column(name = "ID", nullable = false)
+    private Long id;
+
+    @Column(name = "NAME", nullable = false)
+    private String name;
+}

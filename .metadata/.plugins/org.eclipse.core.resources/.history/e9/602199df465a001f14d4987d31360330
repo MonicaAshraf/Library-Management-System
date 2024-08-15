@@ -1,0 +1,27 @@
+package com.library_management.applicationData.entities;
+
+import java.io.Serializable;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Setter
+@Getter
+@Table(name = "Base_Entity")
+public class BaseEntity implements Serializable {
+
+
+
+    @Column(name = "CREATER_ID")
+    private Long createrId;
+
+    @Column(name = "CHANGER_ID")
+    private Long changerId;
+
+    @Column(name = "CREATION_DATE")
+    private java.time.LocalDateTime creationDate;
+
+    @Column(name = "CHANGE_DATE")
+    private java.time.LocalDateTime changeDate;
+}

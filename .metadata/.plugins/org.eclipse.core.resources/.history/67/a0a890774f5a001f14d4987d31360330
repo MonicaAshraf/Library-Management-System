@@ -1,0 +1,26 @@
+package com.library_management.book.models.response;
+
+import lombok.*;
+
+@Setter
+@Getter
+//@JacksonXmlRootElement
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class BookResModel {
+	@NotNull
+	private Boolean success;
+
+	private Integer falNumber;
+	@NotNull
+	private String falDirection;
+	@NotNull
+	private String Port;
+	@NotNull
+	private String mswVisitNo;
+
+	private String action;
+
+	private String message;
+
+	private Long pswVisitNo;
+}

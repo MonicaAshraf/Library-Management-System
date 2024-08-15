@@ -1,0 +1,23 @@
+package com.library_management.utils.exception;
+
+import lombok.*;
+
+@Setter
+@Getter
+public class BorrowingRecordNotFoundException extends RuntimeException{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6994859018150889694L;
+
+	//private Boolean success;
+	private String message;
+	
+	public BorrowingRecordNotFoundException(Boolean success, String message) {
+		super();
+		//this.success = success;
+		this.message = message;
+	}
+
+}

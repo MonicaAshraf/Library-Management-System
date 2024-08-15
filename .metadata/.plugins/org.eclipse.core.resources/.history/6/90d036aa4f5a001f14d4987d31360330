@@ -1,0 +1,5 @@
+package com.library_management.borrowingRecord.models.response;
+
+public class BorrowingRecordResModel {
+
+}

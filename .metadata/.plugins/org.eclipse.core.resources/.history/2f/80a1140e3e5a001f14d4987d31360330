@@ -1,0 +1,16 @@
+package com.library_management.book.entity;
+
+import java.io.Serializable;
+
+@Entity
+@Setter
+@Getter
+@Table(name = "BOOK")
+public class Book implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -286231151746677958L;
+
+}

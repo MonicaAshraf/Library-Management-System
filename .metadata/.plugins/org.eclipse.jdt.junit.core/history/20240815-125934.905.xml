@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="BookControllerTest" project="library_management" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="com.library_management.book.BookControllerTest" time="0.395" displayname="BookControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.library_management.book.BookControllerTest]">
+    <testcase name="testUpdateBook" classname="com.library_management.book.BookControllerTest" time="0.345" displayname="testUpdateBook()" uniqueid="[engine:junit-jupiter]/[class:com.library_management.book.BookControllerTest]/[method:testUpdateBook()]"/>
+    <testcase name="testGetBookById" classname="com.library_management.book.BookControllerTest" time="0.007" displayname="testGetBookById()" uniqueid="[engine:junit-jupiter]/[class:com.library_management.book.BookControllerTest]/[method:testGetBookById()]"/>
+    <testcase name="testRetrieveBooks" classname="com.library_management.book.BookControllerTest" time="0.013" displayname="testRetrieveBooks()" uniqueid="[engine:junit-jupiter]/[class:com.library_management.book.BookControllerTest]/[method:testRetrieveBooks()]"/>
+    <testcase name="testCreateBook" classname="com.library_management.book.BookControllerTest" time="0.016" displayname="testCreateBook()" uniqueid="[engine:junit-jupiter]/[class:com.library_management.book.BookControllerTest]/[method:testCreateBook()]"/>
+    <testcase name="testDeleteBook" classname="com.library_management.book.BookControllerTest" time="0.008" displayname="testDeleteBook()" uniqueid="[engine:junit-jupiter]/[class:com.library_management.book.BookControllerTest]/[method:testDeleteBook()]"/>
+  </testsuite>
+</testrun>

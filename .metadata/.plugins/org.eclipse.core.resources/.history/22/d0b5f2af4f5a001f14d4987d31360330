@@ -1,0 +1,9 @@
+package com.library_management.borrowingRecord.models.response;
+@Setter
+@Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class BorrowingRecordResModel {
+	private Boolean success;
+
+	private String message;
+}

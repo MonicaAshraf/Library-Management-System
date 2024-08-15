@@ -1,0 +1,5 @@
+package com.library_management.book.entity;
+
+public class Book {
+
+}

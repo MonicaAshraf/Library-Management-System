@@ -1,0 +1,5 @@
+package com.library_management.user.entity;
+
+public class User {
+
+}

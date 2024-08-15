@@ -1,0 +1,37 @@
+package com.library_management.patron.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.library_management.book.models.request.BookRequestModel;
+import com.library_management.book.models.response.BookResModel;
+import com.library_management.book.service.BookService;
+import com.library_management.patron.models.response.PatronResModel;
+import com.library_management.patron.service.PatronService;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
+
+@RestController
+@RequestMapping("/patrons") // http://localhost:8080/LibraryManagement/api/patrons
+@Validated
+public class PatronController {
+
+	@Autowired
+	PatronService patronService;
+	
+	@PostMapping()
+	public ResponseEntity<PatronResModel> CreateBook(
+			@Valid @RequestBody PatronRequestModel patronRequestModel,
+			 HttpServletRequest request) throws JsonProcessingException {	
+		return new ResponseEntity<>(patronService.createpatron(patronRequestModel),
+				HttpStatus.OK);
+	}
+}

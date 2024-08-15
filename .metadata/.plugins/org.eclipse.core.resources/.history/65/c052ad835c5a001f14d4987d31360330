@@ -1,0 +1,51 @@
+package com.library_management.book.service.serviceImp;
+
+import java.time.LocalDateTime;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.library_management.applicationData.entities.ApplicationPropertiesConstants;
+import com.library_management.applicationData.entities.BaseEntity;
+import com.library_management.book.entity.Book;
+import com.library_management.book.models.request.BookRequestModel;
+import com.library_management.book.models.response.BookResModel;
+import com.library_management.book.repository.BookRepository;
+import com.library_management.book.service.BookService;
+
+import jakarta.transaction.Transactional;
+
+@Service
+public class BookServiceImpl implements BookService{
+
+	@Autowired
+	BookRepository bookRepository;
+	
+	
+	@Override
+	@Transactional
+	public BookResModel createBook(BookRequestModel bookRequestModel) throws JsonProcessingException {
+		BookResModel result =new BookResModel();
+		Book book = new Book();
+		BaseEntity baseEntity = new BaseEntity();
+		
+		book.setAuthor(bookRequestModel.getAuthor());
+		book.setCategory(bookRequestModel.getCategory());
+		book.setIsbn(bookRequestModel.getIsbn());
+		book.setLanguage(bookRequestModel.getLanguage());
+		book.setNumberOfPages(bookRequestModel.getNumberOfPages());
+		book.setPublicatinYear(bookRequestModel.getPublicationYear());
+		book.setReaderAge(bookRequestModel.getReaderAge());
+		book.setStatusDescription(bookRequestModel.getStatusDescription());
+		book.setTitle(bookRequestModel.getTitle());
+		baseEntity.setCreaterId(ApplicationPropertiesConstants.Library_Management_user);
+		baseEntity.setCreationDate(LocalDateTime.now());
+		book.setBaseEntity(baseEntity);
+		
+		result.setSuccess(true);
+		result.setMessage("Book added succesfully");
+		return result;
+	}
+
+}

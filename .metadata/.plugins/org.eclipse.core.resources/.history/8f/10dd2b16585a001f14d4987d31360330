@@ -1,0 +1,26 @@
+package com.library_management.book.service.serviceImp;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.library_management.book.models.request.BookRequestModel;
+import com.library_management.book.models.response.BookResModel;
+import com.library_management.book.repository.BookRepository;
+import com.library_management.book.service.BookService;
+
+@Service
+public class BookServiceImpl implements BookService{
+
+	@Autowired
+	BookRepository bookRepository;
+	
+	
+	@Override
+	@Transactional
+	public BookResModel createBook(BookRequestModel BookRequestModel) throws JsonProcessingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
